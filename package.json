@@ -2,9 +2,19 @@
   "name": "@auth-ws/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "release:patch": "pnpm bump:patch && pnpm pack:auth",
+    "release:minor": "pnpm bump:minor && pnpm pack:auth",
+    "release:major": "pnpm bump:major && pnpm pack:auth",
+    "bump:patch": "pnpm --filter @auth-ws/auth version patch",
+    "bump:minor": "pnpm --filter @auth-ws/auth version minor",
+    "bump:major": "pnpm --filter @auth-ws/auth version major",
+    "pack:auth": "pnpm --filter @auth-ws/auth pack",
+    "test": "vitest"
+  },
   "private": true,
   "dependencies": {
+    "@auth-ws/auth": "file:libs\\auth\\auth-ws-auth-0.0.1.tgz",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "6.29.0"
@@ -28,6 +38,7 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "16.1.0",
     "@types/node": "^20.0.0",
     "@types/react": "19.0.0",

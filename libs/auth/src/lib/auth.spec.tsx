@@ -1,10 +1,9 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import Auth from './auth';
 
-import AuthWsAuth from './auth';
-
-describe('AuthWsAuth', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(<AuthWsAuth />);
-    expect(baseElement).toBeTruthy();
+describe('Auth component', () => {
+  it('renders expected content', () => {
+    render(<Auth />);
+    expect(screen.getByText(/auth works/i)).toBeInTheDocument();
   });
 });

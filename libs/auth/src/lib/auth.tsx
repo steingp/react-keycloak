@@ -8,4 +8,6 @@ export function AuthWsAuth() {
   );
 }
 
-export default AuthWsAuth;
+export default function Auth() {
+  return <div>Auth works!</div>;
+}
