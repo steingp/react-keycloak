@@ -2,8 +2,7 @@ name: CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
 
 jobs:
@@ -21,13 +20,13 @@ jobs:
           cache: 'pnpm'
 
       - name: 🚀 Install pnpm
-        run: npm install -g pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
 
       - name: 📦 Install dependencies
         run: pnpm install
 
-      - name: 🛠 Build auth-keycloak lib
+      - name: 🛠 Build @auth-ws/auth-keycloak
         run: pnpm nx run @auth-ws/auth-keycloak:build
 
-      - name: 🧪 Test auth-keycloak lib
+      - name: 🧪 Test @auth-ws/auth-keycloak
         run: pnpm nx run @auth-ws/auth-keycloak:test
