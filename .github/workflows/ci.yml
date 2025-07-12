@@ -11,19 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 📥 Sjekk ut repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🧰 Sett opp Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
+          cache: 'pnpm'
 
-      - name: Install pnpm manually
-        run: npm install -g pnpm@8
+      - name: 📦 Installer pnpm
+        run: npm install -g pnpm
 
-      - name: Install dependencies
+      - name: 📦 Installer avhengigheter
         run: pnpm install
 
-      - name: Build auth-keycloak lib
+      - name: 🛠️ Bygg auth-keycloak
         run: pnpm --filter @auth-ws/auth-keycloak build
