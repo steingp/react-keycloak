@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const bumpType = process.argv[2] || 'patch'; // patch | minor | major
-const libPath = 'libs/auth';
+const libPath = 'libs/auth-keycloak';
 const appPath = 'apps/auth-demo';
 
 // 1. Bump version
@@ -14,7 +14,12 @@ execSync(`npm version ${bumpType}`, { cwd: libPath, stdio: 'inherit' });
 console.log(`📦 Kjører pnpm pack...`);
 const packOutput = execSync(`pnpm pack`, { cwd: libPath }).toString().trim();
 const tgzName = packOutput.split('\n').pop();
+
 const tgzPath = path.join(libPath, tgzName);
+if (!fs.existsSync(tgzPath)) {
+  console.error(`🚨 Fant ikke TGZ: ${tgzPath}`);
+  process.exit(1);
+}
 
 // 3. Legg til i app som lokal pakke
 console.log(`➕ Legger til ${tgzName} i ${appPath}...`);

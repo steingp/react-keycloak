@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+  },
   "files": [],
   "include": [],
   "references": [

@@ -1,0 +1,43 @@
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    name: Bygg og test Keycloak-lib + auth-demo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Sjekk ut repo
+        uses: actions/checkout@v4
+
+      - name: 🧰 Sett opp pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 🧪 Sett opp Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: 📦 Installer avhengigheter
+        run: pnpm install
+
+      - name: 🛠️ Bygg Keycloak-lib
+        run: pnpm build auth-keycloak
+
+      - name: 🧪 Test Keycloak-lib
+        run: pnpm test auth-keycloak
+
+      - name: 🛠️ Bygg auth-demo
+        run: pnpm build auth-demo
+
+      - name: 🧪 Test auth-demo
+        run: pnpm test auth-demo

@@ -6,15 +6,17 @@
     "release:patch": "pnpm bump:patch && pnpm pack:auth",
     "release:minor": "pnpm bump:minor && pnpm pack:auth",
     "release:major": "pnpm bump:major && pnpm pack:auth",
-    "bump:patch": "pnpm --filter @auth-ws/auth version patch",
-    "bump:minor": "pnpm --filter @auth-ws/auth version minor",
-    "bump:major": "pnpm --filter @auth-ws/auth version major",
-    "pack:auth": "pnpm --filter @auth-ws/auth pack",
-    "test": "vitest"
+    "bump:patch": "pnpm -w @auth-ws/auth-keycloak version patch",
+    "bump:minor": "pnpm -w @auth-ws/auth-keycloak version minor",
+    "bump:major": "pnpm -w @auth-ws/auth-keycloak version major",
+    "pack:auth-cloak": "cd libs/auth-keycloak && pnpm pack",
+    "install:keycloak:latest": "node libs/auth-keycloak/install-latest-auth-keycloak.mjs",
+    "test": "vitest",
+    "clean:tgz": "rimraf --glob \"libs/auth-keycloak/*.tgz\"",
+    "clean:npm": "rm -rf node_modules pnpm-lock.yaml & pnpm install"
   },
   "private": true,
   "dependencies": {
-    "@auth-ws/auth": "file:libs\\auth\\auth-ws-auth-0.0.1.tgz",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "6.29.0"

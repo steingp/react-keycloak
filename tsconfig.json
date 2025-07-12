@@ -10,7 +10,7 @@
       "path": "./apps/auth-demo"
     },
     {
-      "path": "./libs/auth"
+      "path": "./libs/auth-keycloak"
     }
   ]
 }

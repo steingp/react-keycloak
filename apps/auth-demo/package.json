@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@auth-ws/auth": "file:..\\..\\libs\\auth\\auth-ws-auth-0.0.2.tgz"
+    "@auth-ws/auth-keycloak": "file:..\\..\\libs\\auth-keycloak\\auth-ws-auth-keycloak-0.0.1.tgz"
   }
 }
