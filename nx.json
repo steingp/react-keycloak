@@ -95,6 +95,8 @@
     }
   },
   "projects": {
-    "@auth-ws/auth-keycloak": "libs/auth-keycloak"
+    "@auth-ws/auth-keycloak": {
+      "tags": []
+    }
   }
 }
