@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: CI
 
 on:
@@ -15,25 +14,19 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Setup PNPM
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 8 # eller den versjonen du bruker lokalt
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Clean Nx cache
-        run: pnpm nx reset
-
-      - name: Vis prosjekter i Nx
-        run: pnpm nx show projects
-
-      - name: Bygg auth-keycloak lib
+      - name: Build Keycloak-lib
         run: pnpm --filter @auth-ws/auth-keycloak build
