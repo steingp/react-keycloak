@@ -20,7 +20,7 @@
     "target": "es2022",
     "customConditions": ["development"],
     "paths": {
-      "@auth-ws/auth-keycloak": ["libs/auth-keycloak/src/index.ts"]
+      "@auth-ws/auth-keycloak": ["./libs/auth-keycloak/src/index.ts"]
     }
   }
 }

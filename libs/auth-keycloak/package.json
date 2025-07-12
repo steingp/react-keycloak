@@ -14,9 +14,9 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "dist/libs/auth-keycloak",
-          "tsConfig": "libs/auth-keycloak/tsconfig.lib.json",
-          "main": "libs/auth-keycloak/src/index.ts"
+          "outputPath": "/dist/libs/auth-keycloak",
+          "tsConfig": "./libs/auth-keycloak/tsconfig.lib.json",
+          "main": "./libs/auth-keycloak/src/index.ts"
         }
       },
       "test": {
