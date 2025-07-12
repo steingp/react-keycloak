@@ -31,10 +31,10 @@ jobs:
         run: pnpm install
 
       - name: 🛠️ Bygg Keycloak-lib
-        run: pnpm build auth-keycloak
+        run: pnpm --filter @auth-ws/auth-keycloak build
 
       - name: 🧪 Test Keycloak-lib
-        run: pnpm test auth-keycloak
+        run: pnpm --filter @auth-ws/auth-keycloak test
 
       - name: 🛠️ Bygg auth-demo
         run: pnpm build auth-demo
