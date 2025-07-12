@@ -2,29 +2,27 @@ name: CI
 
 on:
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📥 Sjekk ut repo
+      - name: Check out code
         uses: actions/checkout@v4
 
-      - name: 🧰 Sett opp Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'pnpm'
 
-      - name: 📦 Installer pnpm
+      - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: 📦 Installer avhengigheter
-        run: pnpm install
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: 🛠️ Bygg auth-keycloak
-        run: pnpm --filter @auth-ws/auth-keycloak build
+      - name: Run build
+        run: pnpm nx build @auth-ws/auth-keycloak
