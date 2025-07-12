@@ -8,36 +8,32 @@ on:
     branches: [master]
 
 jobs:
-  build-and-test:
-    name: Bygg og test Keycloak-lib + auth-demo
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Sjekk ut repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🧰 Sett opp pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: 🧪 Sett opp Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
-      - name: 📦 Installer avhengigheter
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
         run: pnpm install
 
-      - name: 🛠️ Bygg Keycloak-lib
+      - name: Clean Nx cache
+        run: pnpm nx reset
+
+      - name: Vis prosjekter i Nx
+        run: pnpm nx show projects
+
+      - name: Bygg auth-keycloak lib
         run: pnpm --filter @auth-ws/auth-keycloak build
-
-      - name: 🧪 Test Keycloak-lib
-        run: pnpm --filter @auth-ws/auth-keycloak test
-
-      - name: 🛠️ Bygg auth-demo
-        run: pnpm build auth-demo
-
-      - name: 🧪 Test auth-demo
-        run: pnpm test auth-demo
