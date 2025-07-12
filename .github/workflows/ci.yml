@@ -4,26 +4,30 @@ on:
   push:
     branches:
       - master
+  pull_request:
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
 
-      - name: Set up Node.js
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🧱 Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.yaml'
 
-      - name: Install pnpm
+      - name: 🚀 Install pnpm
         run: npm install -g pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: 📦 Install dependencies
+        run: pnpm install
 
-      - name: Run build
-        run: pnpm nx build @auth-ws/auth-keycloak
+      - name: 🛠 Build auth-keycloak lib
+        run: pnpm nx run @auth-ws/auth-keycloak:build
+
+      - name: 🧪 Test auth-keycloak lib
+        run: pnpm nx run @auth-ws/auth-keycloak:test
