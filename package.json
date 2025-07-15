@@ -2,7 +2,9 @@
   "name": "@auth-ws/source",
   "version": "0.0.0",
   "license": "MIT",
+  "type": "module",
   "scripts": {
+    "run:dev": "pnpm exec nx serve auth-demo",
     "release:patch": "pnpm bump:patch && pnpm pack:auth",
     "release:minor": "pnpm bump:minor && pnpm pack:auth",
     "release:major": "pnpm bump:major && pnpm pack:auth",
@@ -11,9 +13,11 @@
     "bump:major": "pnpm -w @auth-ws/auth-keycloak version major",
     "pack:auth-cloak": "cd libs/auth-keycloak && pnpm pack",
     "install:keycloak:latest": "node libs/auth-keycloak/install-latest-auth-keycloak.mjs",
-    "test": "vitest",
+    "test:e2e": "pnpm exec nx reset && pnpm exec nx e2e auth-demo-e2e",
+    "test:watch": "vitest --watch",
     "clean:tgz": "rimraf --glob \"libs/auth-keycloak/*.tgz\"",
-    "clean:npm": "rm -rf node_modules pnpm-lock.yaml & pnpm install"
+    "clean:npm": "rm -rf node_modules pnpm-lock.yaml & pnpm exec nx reset & pnpm install",
+    "postinstall": "playwright install"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +39,6 @@
     "@nx/web": "21.2.2",
     "@nx/workspace": "21.2.2",
     "@playwright/test": "^1.36.0",
-    "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.6.0",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",

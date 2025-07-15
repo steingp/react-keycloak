@@ -32,5 +32,10 @@
     "eslint.config.cjs",
     "eslint.config.mjs"
   ],
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],src/app/app.spec.tsx
+  "references": [
+    {
+      "path": "../../libs/auth-keycloak/tsconfig.lib.json"
+    }
+  ]
 }

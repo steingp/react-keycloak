@@ -1,0 +1,19 @@
+{
+  "name": "auth-demo-e2e",
+  "projectType": "application",
+  "sourceRoot": "apps/auth-demo-e2e/src",
+  "root": "apps/auth-demo-e2e",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:e2e",
+      "options": {
+        "config": "apps/auth-demo-e2e/playwright.config.cjs",
+        "devServerTarget": "auth-demo:serve"
+      }
+    }
+  },
+  "implicitDependencies": [
+    "auth-demo"
+  ],
+  "tags": []
+}

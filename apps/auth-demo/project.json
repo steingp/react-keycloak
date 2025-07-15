@@ -1,0 +1,37 @@
+{
+  "name": "auth-demo",
+  "projectType": "application",
+  "sourceRoot": "apps/auth-demo/src",
+  "root": "apps/auth-demo",
+  "targets": {
+    "serve": {
+      "executor": "@nx/web:dev-server",
+      "options": {
+        "buildTarget": "auth-demo:build",
+        "port": 4200
+      }
+    },
+    "build": {
+      "executor": "@nx/web:build",
+      "options": {
+        "outputPath": "dist/apps/auth-demo",
+        "index": "apps/auth-demo/src/index.html",
+        "main": "apps/auth-demo/src/main.tsx",
+        "tsConfig": "apps/auth-demo/tsconfig.app.json",
+        "assets": [],
+        "styles": [],
+        "scripts": []
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": [
+        "coverage/apps/auth-demo"
+      ],
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
