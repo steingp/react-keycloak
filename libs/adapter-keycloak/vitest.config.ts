@@ -1,14 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(() => ({
-  root: __dirname,
-  cacheDir: '../../node_modules/.vite/libs/auth-keycloak',
+export default defineConfig({
   plugins: [react()],
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
   test: {
     watch: false,
     globals: true,
@@ -17,7 +11,7 @@ export default defineConfig(() => ({
     reporters: ['default'],
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
-      provider: 'v8' as const,
+      provider: 'v8',
     },
   },
-}));
+});

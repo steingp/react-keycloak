@@ -30,8 +30,8 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install
 
-      - name: 🛠 Build @auth-ws/auth-keycloak
-        run: pnpm nx run @auth-ws/auth-keycloak:build
+      - name: 🛠 Build @auth-ws/adapter-keycloak
+        run: pnpm nx run @auth-ws/adapter-keycloak:build
 
-      - name: 🧪 Test @auth-ws/auth-keycloak
-        run: pnpm nx run @auth-ws/auth-keycloak:test
+      - name: 🧪 Test @auth-ws/adapter-keycloak
+        run: pnpm nx run @auth-ws/adapter-keycloak:test

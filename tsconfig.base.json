@@ -1,27 +1,28 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "alwaysStrict": true,
     "composite": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "importHelpers": true,
-    "isolatedModules": true,
-    "lib": ["es2022"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2021", "DOM"],
+    "jsx": "react-jsx",
     "strict": true,
-    "target": "es2022",
-    "customConditions": ["development"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "vite/client",
+      "@nx/react/typings/cssmodule",
+      "@nx/react/typings/image"
+    ],
+    "baseUrl": ".",
     "paths": {
-      "@auth-ws/auth-keycloak": ["./libs/auth-keycloak/src/index.ts"],
-      "@auth-demo": ["apps/auth-demo/src/index.ts"]
+      "@auth-ws/adapter-keycloak": ["./libs/adapter-keycloak/src/index.ts"],
+      "@auth-ws/adapter-mock": ["libs/adapter-mock/src/index.ts"],
+      "@auth-ws/api-graphql": ["libs/api-graphql/src/index.ts"],
+      "@auth-ws/core-domain": ["libs/core-domain/src/index.ts"],
+      "@auth-ws/ui-react": ["libs/ui-react/src/index.ts"]
     }
   }
 }

@@ -1,0 +1,15 @@
+### Get all books
+POST http://localhost:7687/graphql
+Content-Type: application/json
+
+{
+  "query": "query { books { nodes { id title author } } }"
+}
+
+### Add a new book
+POST http://localhost:7687/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { addBook(title: \"The Art of Computer Programming\", author: \"Donald Knuth\") { id title author } }"
+}

@@ -1,10 +1,10 @@
 {
-  "name": "@auth-ws/auth-keycloak",
+  "name": "@auth-ws/adapter-keycloak",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "nx build auth-keycloak",
-    "test": "nx test auth-keycloak"
+    "build": "nx build adapter-keycloak",
+    "test": "nx test adapter-keycloak"
   },
   "nx": {
     "targets": {
@@ -14,9 +14,9 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "/dist/libs/auth-keycloak",
-          "tsConfig": "./libs/auth-keycloak/tsconfig.lib.json",
-          "main": "./libs/auth-keycloak/src/index.ts"
+          "outputPath": "/dist/libs/adapter-keycloak",
+          "tsConfig": "./libs/adapter-keycloak/tsconfig.lib.json",
+          "main": "./libs/adapter-keycloak/src/index.ts"
         }
       },
       "test": {

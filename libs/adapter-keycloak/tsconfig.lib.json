@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "../../dist/out-tsc",
+    "declaration": true,
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
+  "exclude": [
+    "src/**/*.spec.ts", "src/**/*.test.ts",
+    "src/**/*.spec.tsx", "src/**/*.test.tsx"
+  ]
+}

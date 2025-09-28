@@ -3,7 +3,7 @@
   "include": [],
   "references": [
     {
-      "path": "../../libs/auth-keycloak"
+      "path": "../../libs/adapter-keycloak"
     },
     {
       "path": "./tsconfig.app.json"

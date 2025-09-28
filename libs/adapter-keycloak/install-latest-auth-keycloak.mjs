@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-const libDir = 'libs/auth-keycloak';
+const libDir = 'libs/adapter-keycloak';
 const appName = 'auth-demo';
 
 console.log('🔍 Ser etter siste .tgz i', libDir);

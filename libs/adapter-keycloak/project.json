@@ -1,0 +1,36 @@
+{
+  "name": "@auth-ws/adapter-keycloak",
+  "projectType": "library",
+  "sourceRoot": "libs/adapter-keycloak/src",
+  "root": "libs/adapter-keycloak",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/adapter-keycloak",
+        "tsConfig": "libs/adapter-keycloak/tsconfig.lib.json",
+        "main": "libs/adapter-keycloak/src/index.ts"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": [],
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [],
+  "lint": {
+    "executor": "@nx/eslint:lint",
+    "options": {
+      "lintFilePatterns": [
+        "libs/adapter-keycloak/**/*.ts",
+        "libs/adapter-keycloak/**/*.tsx"
+      ]
+    }
+  }
+}

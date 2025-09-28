@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const bumpType = process.argv[2] || 'patch'; // patch | minor | major
-const libPath = 'libs/auth-keycloak';
+const libPath = 'libs/adapter-keycloak';
 const appPath = 'apps/auth-demo';
 
 // 1. Bump version

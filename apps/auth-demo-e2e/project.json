@@ -1,5 +1,5 @@
 {
-  "name": "auth-demo-e2e",
+  "name": "@auth-ws/auth-demo-e2e",
   "projectType": "application",
   "sourceRoot": "apps/auth-demo-e2e/src",
   "root": "apps/auth-demo-e2e",
@@ -9,11 +9,20 @@
       "options": {
         "config": "apps/auth-demo-e2e/playwright.config.cjs",
         "devServerTarget": "auth-demo:serve"
+      },
+      "lint": {
+        "executor": "@nx/eslint:lint",
+        "options": {
+          "lintFilePatterns": [
+            "apps/auth-demo-e2e/src/**/*.{ts,tsx,js,jsx}",
+            "apps/auth-demo-e2e/*.{cjs,mjs}"
+          ]
+        }
       }
     }
   },
   "implicitDependencies": [
-    "auth-demo"
+    "@auth-ws/auth-demo"
   ],
   "tags": []
 }

@@ -5,14 +5,23 @@
   "root": "apps/auth-demo",
   "targets": {
     "serve": {
-      "executor": "@nx/web:dev-server",
+      "executor": "@nx/vite:build",
       "options": {
         "buildTarget": "auth-demo:build",
         "port": 4200
+      },
+      "lint": {
+        "executor": "@nx/eslint:lint",
+        "options": {
+          "lintFilePatterns": [
+            "<projectRoot>/src/**/*.{ts,tsx,js,jsx}",
+            "<projectRoot>/*.{ts,tsx,js,jsx,mjs,cjs}"
+          ]
+        }
       }
     },
     "build": {
-      "executor": "@nx/web:build",
+      "executor": "@nx/vite:build",
       "options": {
         "outputPath": "dist/apps/auth-demo",
         "index": "apps/auth-demo/src/index.html",

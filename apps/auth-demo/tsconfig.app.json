@@ -1,8 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "composite": true,
     "outDir": "dist",
-    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    "tsBuildInfoFile": "./dist/tsconfig.app.tsbuildinfo",
     "jsx": "react-jsx",
     "lib": ["dom"],
     "types": [
@@ -32,10 +33,10 @@
     "eslint.config.cjs",
     "eslint.config.mjs"
   ],
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],src/app/app.spec.tsx
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
-      "path": "../../libs/auth-keycloak/tsconfig.lib.json"
+      "path": "../../libs/adapter-keycloak/tsconfig.lib.json"
     }
   ]
 }
