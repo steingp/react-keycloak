@@ -1,24 +1,24 @@
 {
   "compilerOptions": {
-    "composite": true,
     "forceConsistentCasingInFileNames": true,
-    "target": "ES2021",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "lib": ["ES2021", "DOM"],
-    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
     "strict": true,
+    "noEmit": true,
+    "baseUrl": ".",
     "skipLibCheck": true,
-    "resolveJsonModule": true,
     "types": [
       "node",
-      "vite/client",
+      "vite/globals",
+      "vite",
+      "vitest",
+      "vitest/importMeta",
       "@nx/react/typings/cssmodule",
       "@nx/react/typings/image"
     ],
-    "baseUrl": ".",
     "paths": {
-      "@auth-ws/adapter-keycloak": ["./libs/adapter-keycloak/src/index.ts"],
+      "@auth-ws/adapter-keycloak": ["libs/adapter-keycloak/src/index.ts"],
       "@auth-ws/adapter-mock": ["libs/adapter-mock/src/index.ts"],
       "@auth-ws/api-graphql": ["libs/api-graphql/src/index.ts"],
       "@auth-ws/core-domain": ["libs/core-domain/src/index.ts"],

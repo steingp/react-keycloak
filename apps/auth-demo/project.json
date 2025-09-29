@@ -35,12 +35,14 @@
     "test": {
       "executor": "@nx/vite:test",
       "outputs": [
-        "coverage/apps/auth-demo"
+        "{options.reportsDirectory}"
       ],
       "options": {
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "environment": "jsdom",
+        "reportsDirectory": "coverage/apps/auth-demo"
       }
-    }
-  },
-  "tags": []
+    },
+    "tags": []
+  }
 }

@@ -13,7 +13,7 @@
       "path": "./libs/adapter-keycloak"
     },
     {
-      "path": "./libs"
+      "path": "./libs/adapter-mock/"
     }
   ]
 }

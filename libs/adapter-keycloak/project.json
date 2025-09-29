@@ -1,8 +1,8 @@
 {
-  "name": "@auth-ws/adapter-keycloak",
+  "name": "adapter-keycloak",
   "projectType": "library",
-  "sourceRoot": "libs/adapter-keycloak/src",
   "root": "libs/adapter-keycloak",
+  "sourceRoot": "libs/adapter-keycloak/src",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
@@ -12,7 +12,15 @@
       "options": {
         "outputPath": "dist/libs/adapter-keycloak",
         "tsConfig": "libs/adapter-keycloak/tsconfig.lib.json",
-        "main": "libs/adapter-keycloak/src/index.ts"
+        "main": "libs/adapter-keycloak/src/index.ts",
+        "assets": [
+          "libs/adapter-keycloak/README.md",
+          {
+            "input": "libs/adapter-keycloak",
+            "glob": "package.json",
+            "output": "."
+          }
+        ]
       }
     },
     "test": {
@@ -23,7 +31,10 @@
       }
     }
   },
-  "tags": [],
+  "tags": [
+    "scope:auth-ws",
+    "type:adapter"
+  ],
   "lint": {
     "executor": "@nx/eslint:lint",
     "options": {

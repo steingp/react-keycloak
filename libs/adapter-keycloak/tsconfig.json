@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx"
   },
   "files": [],
   "include": [],

@@ -1,13 +1,5 @@
-import styles from './auth.module.scss';
+import React from "react";
 
-export function AuthWsAuth() {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to AuthWsAuth!</h1>
-    </div>
-  );
-}
-
-export default function Auth() {
+export function Auth() {
   return <div>Auth works!</div>;
 }

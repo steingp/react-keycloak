@@ -1,9 +1,13 @@
 {
+  "extends": "../../tsconfig.base.json",
   "files": [],
   "include": [],
+  "compilerOptions":{
+    "jsx":"react-jsx"
+  },
   "references": [
     {
-      "path": "../../libs/adapter-keycloak"
+      "path": "@auth-ws/adapter-keycloak"
     },
     {
       "path": "./tsconfig.app.json"
@@ -12,5 +16,4 @@
       "path": "./tsconfig.spec.json"
     }
   ],
-  "extends": "../../tsconfig.base.json"
 }

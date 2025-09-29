@@ -1,0 +1,23 @@
+{
+  "name": "adapter-mock",
+  "projectType": "library",
+  "root": "libs/adapter-mock",
+  "sourceRoot": "libs/adapter-mock/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/adapter-mock",
+        "tsConfig": "libs/adapter-mock/tsconfig.lib.json",
+        "main": "libs/adapter-mock/src/index.ts"
+      }
+    }
+  },
+  "tags": [
+    "scope:auth-ws",
+    "type:adapter"
+  ]
+}

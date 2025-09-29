@@ -1,10 +1,12 @@
 // Uncomment this line to use CSS modules
 // import styles from './app.module.scss';
+import { Auth } from '@auth-ws/adapter-keycloak';
 
 export function App() {
   return (
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim placeat eius minima aut quis voluptas?
-    </div>
+    <>
+      <Auth/>
+    </>
   );
 }
 

@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './app';
+import { describe, it } from 'vitest';
 
 describe('App', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <BrowserRouter>
-        <App />
+        <Auth />
       </BrowserRouter>
     );
     expect(baseElement).toBeTruthy();
@@ -16,7 +16,7 @@ describe('App', () => {
   it('should have a greeting as the title', () => {
     const { getAllByText } = render(
       <BrowserRouter>
-        <App />
+        <Auth />
       </BrowserRouter>
     );
     expect(
@@ -24,3 +24,7 @@ describe('App', () => {
     ).toBeTruthy();
   });
 });
+function expect(baseElement: any) {
+  throw new Error('Function not implemented.');
+}
+

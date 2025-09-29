@@ -10,8 +10,15 @@ export default [
   // Ignorer genererte greier
   {
     ignores: [
-      '**/dist/**','**/coverage/**','**/test-output/**',
-      '**/node_modules/**','**/.nx/**','**/*.min.js','**/*.bundle.js'
+      '**/dist/**',
+      '**/coverage/**',
+      '**/test-output/**',
+      '**/node_modules/**',
+      '**/.nx/**',
+      '**/*.min.js',
+      '**/*.bundle.js',
+      '**/vite.config.*.timestamp*',
+      '**/vitest.config.*.timestamp*',
     ],
   },
 
@@ -20,14 +27,14 @@ export default [
 
   // --- TypeScript / TSX (kilde + config-filer) ---
   {
-    files: ['**/*.{ts,tsx}'],              // inkluderer *.ts, *.tsx
+    files: ['**/*.{ts,tsx}'], // inkluderer *.ts, *.tsx
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
         tsconfigRootDir: import.meta.dirname,
-        project: false,                    // ikke type-aware linting
+        project: false, // ikke type-aware linting
       },
       globals: { ...globals.browser, ...globals.node },
     },
@@ -54,7 +61,7 @@ export default [
       globals: {
         ...globals.node,
         ...globals.browser,
-        ...globals.vitest,   // <-- her kommer describe/it/expect/vi m.fl.
+        ...globals.vitest, // <-- her kommer describe/it/expect/vi m.fl.
       },
     },
     rules: {
@@ -68,7 +75,7 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.jest,   // noen bruker dette
+        ...globals.jest, // noen bruker dette
         vi: true,
         describe: true,
         it: true,
@@ -77,7 +84,7 @@ export default [
         beforeEach: true,
         afterAll: true,
         afterEach: true,
-      }
-    }
+      },
+    },
   },
 ];

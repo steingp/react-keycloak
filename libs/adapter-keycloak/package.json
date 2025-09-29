@@ -2,6 +2,10 @@
   "name": "@auth-ws/adapter-keycloak",
   "version": "0.0.1",
   "type": "module",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "scripts": {
     "build": "nx build adapter-keycloak",
     "test": "nx test adapter-keycloak"

@@ -1,10 +1,7 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
-    "declaration": true,
-    "types": []
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"]
+    "jsx": "react", "noEmit": true, "types": ["vitest/globals", "node"]
+},
+  "include": ["src/**/*.spec.*", "src/**/*.test.*", "src/test-setup.ts"]
 }

@@ -13,15 +13,46 @@
     ],
     "sharedGlobals": []
   },
-  "plugins": ["@nx/js", "@nx/vite", "@nx/eslint/plugin"],
+  "plugins": [
+    "@nx/js",
+    "@nx/vite",
+    "@nx/eslint/plugin",
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "vite:build",
+        "testTargetName": "vite:test",
+        "serveTargetName": "vite:serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    }
+  ],
   "targetDefaults": {
     "test": {
       "dependsOn": ["^build"]
     }
   },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
   "generators": {
+    "@nx/js": {
+      "library": {
+        "projectNameAndRootFormat": "derived",
+        "bundler": "tsc",
+        "linter": "eslint",
+        "unitTestRunner": "vitest"
+      }
+    },
     "@nx/react": {
       "application": {
+        "projectNameAndRootFormat": "derived",
         "babel": true,
         "style": "scss",
         "linter": "eslint",
@@ -31,9 +62,11 @@
         "style": "scss"
       },
       "library": {
+        "projectNameAndRootFormat": "derived",
         "style": "scss",
         "linter": "eslint",
-        "unitTestRunner": "vitest"
+        "unitTestRunner": "vitest",
+        "bundler": "vite"
       }
     }
   },
